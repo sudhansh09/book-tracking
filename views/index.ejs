@@ -1,0 +1,49 @@
+<!-- listItems: <%= JSON.stringify(listItems) %> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Book Tracking</title>
+</head>
+<body>
+  <ul class="taskbar">
+   
+        <li><form action="/" method="get" ><h2>Home</h2></form></li>
+        <li><h2><a href="/add">Add</a></h2></li>
+        <li><h2><a href="/edit">Edit</a></h2></form></li>
+      <ul class="dropdown">
+        <li style="list-style-type: none;" class="dropbtn"><h2>Sort By</h2></li>
+        <div class="dropdown-content">
+        <form action="/date" method="get"><button>Date</button></form>
+        <form action="/rate" method="get"><button>Rate</button></form>
+        </div>
+      </ul>
+    </ul>
+    <div class="bookbox">
+       <% for(let item of listItems){%>
+        <form action="/delete" method="post">
+          <input type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>">
+        </form>
+
+        <div class="item">
+        <div class="imagebox">
+          <img src="https://covers.openlibrary.org/b/isbn/0385472579-M.jpg">
+        </div>
+
+        <div class="outer-box">
+        <div class="inner-box" id="title<%= item.id%>">
+          <h3> Book Title: <%= item.title %></h3>
+          <h3> Rating: <%= item.rate %></h3>
+          <h3> Date: <%= item.book_date %></h3>
+          <h3> Note: <%= item.note %></h3>
+        </div>
+        </div>
+        </div>
+      <% } %>
+    
+  </div>
+</body>
+</html>

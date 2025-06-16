@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+* {
+  box-sizing: border-box;
+}
+body {
+    /* display: inline;
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  transform: translate(-35%, -35%);
+  font-family: "Roboto"; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+h1{
+    text-align: center;
+}
+.input{
+    gap: 10px;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.3); /* White with transparency */
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Optional: adds blur effect behind */
+    width: 300px;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/add.css">
+    <title>Add New Books</title>
+</head>
+<body>
+    <h1>Add a new book</h1>
+
+  <form action="/add" method="post" class="input">
+    <h3>Book name: </h3>
+    <input type="text" name="bookname">
+    <h3>Rating: </h3>
+    <input type="number" name="rate">
+    <h3>Date: </h3>
+    <input type="datetime" name="date">
+    <h3>Note: </h3>
+    <input type="text" name="note"><br>
+    <button type="submit" style="margin-top: 10px;">Add</button>
+    </form>
+</body>
+</html>
