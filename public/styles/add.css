@@ -3,15 +3,8 @@
   box-sizing: border-box;
 }
 body {
-    /* display: inline;
-  position: absolute;
-  top: 35%;
-  left: 35%;
-  transform: translate(-35%, -35%);
-  font-family: "Roboto"; */
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 h1{
     text-align: center;
