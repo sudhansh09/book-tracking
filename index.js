@@ -70,6 +70,7 @@ app.post("/add", async(req,res) =>{
     }
 })
 
+
 app.get("/edit", (req, res) => {
     res.render("edit");
 });

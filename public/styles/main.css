@@ -1,7 +1,8 @@
 html {
-  /* background-color: #e4e9fd; */
-  /* background-image: -webkit-linear-gradient(56deg, #140d20 50%, #7d84a2 50%); */
-  background-image: url("/assets/icon/background.jpg");
+  background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(56deg, #140d20 50%, #7d84a2 50%);
+  
+  opacity: 1.0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -56,6 +57,10 @@ button{
 
 .dropdown:hover .dropbtn {
     background-color: #d0ead0;
+}
+
+.bookbox{
+    background-image: url("/assets/icon/WhatsApp Image 2025-06-22 at 22.25.58_32344fa2.jpg");
 }
 
 .item{
