@@ -61,6 +61,15 @@ button{
 
 .bookbox{
     background-image: url("/assets/icon/WhatsApp Image 2025-06-22 at 22.25.58_32344fa2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* width: 90%; */
+    height: 100%;
+    border: 2px solid #f54e07;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
 .item{
@@ -73,7 +82,7 @@ button{
     
     /* display: inline-block; */
     width: 700px;
-    /* height: 200px; */
+    height: 200px;
     background-color: #d4eaff;
     padding: 20px;
     text-align: left;
@@ -86,4 +95,38 @@ button{
 
 .imagebox{
    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 250px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
 }
+
+@media (max-width: 768px) {
+    .taskbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .outer-box {
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    .input {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .item {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+    
+    .imagebox {
+        display: none; /* Hide image box on small screens */
+    }
+}   
