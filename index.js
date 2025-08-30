@@ -117,16 +117,6 @@ app.post("/edit", async(req, res) =>{
     }
 })
 
-app.get("/date", async (req, res) => {
-    await db.query("SELECT * FROM book ORDER BY book_date DESC;");
-    res.redirect("/");
-});
-
-app.get("/rate", async (req, res) => {
-    await db.query("SELECT * FROM book ORDER BY rate ASC;");
-    res.redirect("/");
-});
-
 app.post("/delete", async (req, res) =>{
     const deleteItem = req.body.deleteItemId;
     try{

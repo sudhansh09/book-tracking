@@ -22,8 +22,14 @@
     <h3>Update Note: </h3>
     <input type="text" name="updatenote"><br>
     <button type="submit" style="margin-top: 10px;">Edit</button>
-    <button type="button" >Clear</button>
+    <button type="button" onclick="clearForm()">Clear</button>
     <a href="/" ><button type="button">Back</button></a>
     </form>
+
+    <script>
+        function clearForm() {
+            document.querySelector(".input").reset();
+        }
+    </script>
 </body>
 </html>

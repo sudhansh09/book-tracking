@@ -14,15 +14,8 @@
         <a href="/"><li><h2>Home</h2></li></a>
         <li><h2><a href="/add">Add</a></h2></li>
         <li><h2><a href="/edit">Edit</a></h2></form></li>
-      <ul class="dropdown">
-        <li style="list-style-type: none;" class="dropbtn"><h2>Sort By</h2></li>
-        <div class="dropdown-content">
-          <form action="/date" method="get"><button>Date</button></form>
-          <form action="/rate" method="get"><button>Rate</button></form>
-        </div>
-      </ul>
     </ul>
-    <div class="bookbox">
+    <div class="bookbox" id="bookbox">
        <% for(let item of listItems){%>
         <form action="/delete" method="post">
           <input type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>">
@@ -30,9 +23,6 @@
 
         <div class="item">
         <div class="imagebox">
-          <!-- <img src="https://covers.openlibrary.org/b/isbn/0385472579-M.jpg"> -->
-         <%= title %>
-          <% const currentBookId = item.id; %>
           <% const coverImage = item.isbn ? `https://covers.openlibrary.org/b/isbn/${item.isbn}-M.jpg` : 'https://covers.openlibrary.org/b/id/12345678-M.jpg'; %>
 
           <img src="<%= coverImage %>" alt="Book Cover">
@@ -50,7 +40,6 @@
         </div>
         </div>
       <% } %>
-    
   </div>
 </body>
 </html>

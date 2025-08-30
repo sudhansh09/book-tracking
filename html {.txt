@@ -1,0 +1,132 @@
+html {
+  background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(56deg, #140d20 50%, #7d84a2 50%);
+  
+  opacity: 1.0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 1000px;
+  font-family: "helvetica neue";
+}
+
+a{
+    color: black;
+   text-decoration: none; 
+}
+
+.taskbar {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button{
+    background-color: #1b7884;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content form {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content form:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #d0ead0;
+}
+
+.bookbox{
+    background-image: url("/assets/icon/WhatsApp Image 2025-06-22 at 22.25.58_32344fa2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* width: 90%; */
+    height: 100%;
+    border: 2px solid #f54e07;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.item{
+    display: grid;
+    grid-template-rows: 250px auto;
+    grid-template-columns: 700px auto;
+}
+
+.outer-box {
+    
+    /* display: inline-block; */
+    width: 700px;
+    height: 200px;
+    background-color: #d4eaff;
+    padding: 20px;
+    text-align: left;
+    /*float: right; ✅ Aligns outer box to right*/
+    margin: 20px;
+    margin-right: 40px;
+    border: 2px solid #0077cc;
+    border-radius: 10px;
+}
+
+.imagebox{
+   align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 250px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .taskbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .outer-box {
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    .input {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .item {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+    
+    .imagebox {
+        display: none; /* Hide image box on small screens */
+    }
+}   

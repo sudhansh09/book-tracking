@@ -22,10 +22,14 @@
     <h3>Book Bite 📝: </h3>
     <input type="text" name="note"><br>
     <button type="submit" >Add</button>
-    <button type="button" >Clear</button>
+    <button type="button" onclick="clearForm()" >Clear</button>
     <a href="/" ><button type="button">Back</button></a>
-
-
     </form>
+
+    <script>
+      function clearForm() {
+        document.querySelector(".input").reset();
+      }
+    </script>
 </body>
 </html>
