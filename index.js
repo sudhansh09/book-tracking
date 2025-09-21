@@ -2,17 +2,20 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "book",
-    password: "@Sudhansh0912",
-    port: 5432
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASS,
+    port: process.env.DB_PORT
 });
+
 db.connect();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,9 +25,7 @@ let items = [
     { id: 1, title: "Harry Potter", rate: 4.00, book_date: "2024-04-14",isbn: 9780747532699, note: "its a nice mistry book"},
     { id: 2, title: "Never have I ever", rate: 3.90, book_date: "2024-06-12",isbn: 9781917180047, note: "book about teen love & their problems"},
 ]
-let currentBookId =[];
 
-console.log("currentBookId:", currentBookId);
 app.get("/", async (req, res) => {
     try {
         const result = await db.query("SELECT * FROM book;");
@@ -33,9 +34,6 @@ app.get("/", async (req, res) => {
         console.log("Items fetched from database:", items );
 
         const response = await axios.get(`https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`);
-        // console.log("Response data:", response);
-        // Render the index.ejs template with the items and response data
-
 
         res.render("index", { listItems: items, coverImage: response});
     } 
@@ -60,8 +58,6 @@ app.post("/add", async(req,res) =>{
       const result = await db.query("INSERT INTO book (title, rate, book_date, note, isbn) VALUES ($1, $2, $3, $4, $5);",
             [title,rate,date,note,isbn]
         );
-        // const id = result.rows[0].id;
-        // currentBookId = id;
 
         res.redirect("/");
     }
