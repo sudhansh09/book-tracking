@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewing book</title>
+    <link rel="stylesheet" href="styles/view.css" >
+</head>
+<body>
+    <% for(let item of listItems) {%> 
+    <div class="item">
+        <div class="imagebox">
+          <img src="<%= coverImage %>" alt="Book Cover">
+        </div>
+
+        <div class="outer-box">
+        <div class="inner-box" id="title<%= item.id%>">
+          <h3> Book Title: <%= item.title %></h3>
+          <h3> Rating: <%= item.rate %></h3>
+          <h3> Date: <%= item.book_date %></h3>
+          <h3> ISBN: <%= item.isbn %></h3>
+          <h3> Note: <%= item.note %></h3>
+        </div>
+        </div>
+        <a href="/"><button type="button">Back</button></a>
+    </div>
+    <% } %>
+</body>
+</html>

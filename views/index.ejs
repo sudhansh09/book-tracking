@@ -1,5 +1,3 @@
-<!-- listItems: <%= JSON.stringify(listItems) %> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +15,6 @@
     </ul>
     <div class="bookbox" id="bookbox">
        <% for(let item of listItems){%>
-        <form action="/delete" method="post">
-          <input type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>">
-        </form>
 
         <div class="item">
         <div class="imagebox">
@@ -37,6 +32,15 @@
           <h3> ISBN: <%= item.isbn %></h3>
           <h3> Note: <%= item.note %></h3>
         </div>
+        </div>
+        <div  class="button-action">
+          <form action="/delete" method="post" >
+            <button type="checkbox" onchange="this.form.submit()" name="deleteItemId" value="<%= item.id %>">Delete</button>
+          </form>
+          <form action="/view" method="POST">
+            <input type="hidden" name="isbn" value="<%= item.isbn %>">
+            <button type="submit">View</button>
+          </form>
         </div>
         </div>
       <% } %>

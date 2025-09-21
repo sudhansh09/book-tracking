@@ -1,0 +1,75 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #1e293b; /* Single background color */
+  color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.7;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.imagebox {
+  width: 260px;
+  height: 360px;
+  margin: 0 auto 25px auto;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.imagebox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  display: inline-block;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .bookbox {
+    padding: 25px;
+    width: 95%;
+  }
+
+  .imagebox {
+    width: 200px;
+    height: 280px;
+  }
+
+  .book-details h3 {
+    font-size: 20px;
+  }
+}

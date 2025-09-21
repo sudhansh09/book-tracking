@@ -32,14 +32,12 @@ app.get("/", async (req, res) => {
         const isbn = items.length > 0 ? items[0].isbn : "9780441013593"; // Default ISBN if no items
         console.log("Items fetched from database:", items );
 
-        // Optional: use a book title if available
-        //const title = items.length > 0 ? items[0].title : "default";
         const response = await axios.get(`https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`);
         // console.log("Response data:", response);
         // Render the index.ejs template with the items and response data
 
 
-        res.render("index", { listItems: items,title: items.title, coverImage: response, currentBookId: currentBookId });
+        res.render("index", { listItems: items, coverImage: response});
     } 
     catch (error) {
         console.log("Error occurred:", error.message);
@@ -126,6 +124,19 @@ app.post("/delete", async (req, res) =>{
     catch(err)
     {
         console.log(err);
+    }
+});
+
+app.post("/view", async (req, res) => {
+    const isbn = req.body.isbn;
+    try {
+        const result = await db.query("SELECT * FROM book WHERE isbn = $1;", [isbn]);
+        const items = result.rows;
+        const coverImageUrl = `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
+        res.render("view", { listItems: items, title: items[0]?.title, coverImage: coverImageUrl, currentBookId: currentBookId });
+    } catch (error) {
+        console.log("Error occurred:", error.message);
+        res.status(500).send("Failed to load book data.");
     }
 });
 

@@ -1,4 +1,4 @@
-/* ====== Global Styles ====== */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
@@ -29,7 +29,7 @@ body {
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
-.taskbar a {
+a {
   text-decoration: none;
   color: #e2e8f0;
   font-weight: 600;
@@ -103,7 +103,16 @@ body {
 }
 
 /* Buttons */
+.button-action {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  justify-content: space-around;
+  width: 100%;
+}
+
 button {
+  display: inline-block;
   padding: 12px 22px;
   border: none;
   border-radius: 10px;
@@ -114,6 +123,8 @@ button {
   font-size: 15px;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  
+  /* margin-top: 10px; */
 }
 
 button:hover {
@@ -127,13 +138,14 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
   padding: 40px 20px;
-  gap: 25px;
+  gap: 40px;
 }
 
 .outer-box {
+  font-size: 10px;
   width: 280px;
   background: rgba(255, 255, 255, 0.07);
-  border-radius: 20px;
+  border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
