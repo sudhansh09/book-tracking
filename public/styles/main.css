@@ -147,7 +147,6 @@ button:hover {
   background: rgba(255, 255, 255, 0.07);
   border-radius: 6px;
   overflow: hidden;
-  margin-left: 5px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(12px);
@@ -155,7 +154,11 @@ button:hover {
 
 .outer-box:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  box-shadow: 0 35px rgba(0,0,0,0.5);
+}
+
+.inner-box h3{ 
+  margin-left: 8px;
 }
 
 .imagebox {
