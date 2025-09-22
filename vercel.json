@@ -1,13 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/index.js", "use": "@vercel/node" }
+    { "src": "index-supabase.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/index.js" },
-    { "src": "/(.*)\.(css|js|png|jpg|jpeg|gif|svg|ico|webp)", "dest": "/$1.$2" },
-    { "src": "/(.*)", "dest": "/api/index.js" }
+    { "src": "/(.*)", "dest": "index-supabase.js" }
   ]
 }
-
-
