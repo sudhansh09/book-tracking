@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import axios from "axios";
 import dotenv from "dotenv";
+import path from "path";
 import { createClient } from '@supabase/supabase-js';
 
 // Load environment variables
@@ -30,7 +31,7 @@ const db = new pg.Client({
 db.connect().catch(console.error);
 
 app.set("view engine", "ejs");
-app.use(express.json());
+app.set("views", path.join(process.cwd(), "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
