@@ -1,13 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
-import pg from "pg";
 import axios from "axios";
 import dotenv from "dotenv";
 import path from "path";
 import { createClient } from '@supabase/supabase-js';
 
 // Load environment variables
-dotenv.config({ path: './supabase.env' });
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,23 +17,13 @@ const supabase = createClient(
     process.env.SUPABASE_ANON_KEY
 );
 
-// Fallback to direct PostgreSQL connection if needed
-const db = new pg.Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASS,
-    port: process.env.DB_PORT
-});
-
 // Connect to database
-db.connect().catch(console.error);
+// db.connect().catch(console.error);
 
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "views"));
 app.use(express.static(path.join(process.cwd(), "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 // Helper function to get books using Supabase
 async function getBooksSupabase() {
@@ -109,7 +98,7 @@ app.get("/", async (req, res) => {
         const isbn = items.length > 0 ? items[0].isbn : "9780441013593";
         console.log("Items fetched from Supabase:", items);
 
-        const response = await axios.get(`https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`);
+        const response =`https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`;
 
         res.render("index", { listItems: items, coverImage: response });
     } 
